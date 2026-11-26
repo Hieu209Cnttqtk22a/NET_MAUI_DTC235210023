@@ -45,5 +45,11 @@ namespace NET_MAUI_DTC235210023.ViewModel
                 Items.Remove(s);
             }
         }
+
+        [RelayCommand]
+        async Task Tap(string s)
+        {
+            await Shell.Current.GoToAsync($"{nameof(DetailPage)}?item={s}");
+        }
     }
 }

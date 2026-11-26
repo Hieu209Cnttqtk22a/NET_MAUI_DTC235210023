@@ -17,6 +17,9 @@ namespace NET_MAUI_DTC235210023
                 });
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
+
+            builder.Services.AddSingleton<DetailPage>();
+            builder.Services.AddSingleton<DetailViewModel>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
