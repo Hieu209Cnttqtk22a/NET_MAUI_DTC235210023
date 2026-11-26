@@ -14,8 +14,11 @@ namespace NET_MAUI_DTC235210023.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
-        public MainViewModel()
+        IConnectivity connectivity;
+        public MainViewModel(IConnectivity connectivity)
         {
+
+            this.connectivity = connectivity;
             Items = new ObservableCollection<string>();
         }
         [ObservableProperty]
@@ -27,13 +30,18 @@ namespace NET_MAUI_DTC235210023.ViewModel
         [RelayCommand]
 
         // Create Add logic
-        void Add()
+        async Task Add()
         {
-            if(string.IsNullOrWhiteSpace(Text))
+            if (string.IsNullOrWhiteSpace(Text))
                 return;
 
+            if (connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                await Shell.Current.DisplayAlert("Uh Oh","No Internet","OK");
+                return;
+            }
+
             Items.Add(Text);
-            // Add our items
             Text = string.Empty;
         }
 

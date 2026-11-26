@@ -22,6 +22,8 @@ namespace NET_MAUI_DTC235210023
             builder.Services.AddSingleton<DetailViewModel>();
 #if DEBUG
             builder.Logging.AddDebug();
+
+            builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
 #endif
 
             return builder.Build();
