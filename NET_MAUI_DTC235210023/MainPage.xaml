@@ -13,9 +13,11 @@
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a submarine number ten" />
 
+            <!-- Change text label and add font size -->
             <Label
-                Text="Hello, World!"
+                Text="Hello, .Net MAUI!"
                 Style="{StaticResource Headline}"
+                FontSize="100"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
